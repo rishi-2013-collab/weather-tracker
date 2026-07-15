@@ -12,6 +12,7 @@ CAMP_MONTH = 10
 CAMP_START_DAY = 1
 CAMP_END_DAY = 14
 
+
 def get_historical_weather(lat, lon, start_date, end_date):
     url = "https://archive-api.open-meteo.com/v1/archive"
     params = {
@@ -25,6 +26,7 @@ def get_historical_weather(lat, lon, start_date, end_date):
     response = requests.get(url, params=params)
     return response.json()
 
+
 def get_forecast(lat, lon):
     url = "https://api.open-meteo.com/v1/forecast"
     params = {
@@ -36,6 +38,7 @@ def get_forecast(lat, lon):
     }
     response = requests.get(url, params=params)
     return response.json()
+
 
 today = date.today()
 current_year = today.year
@@ -63,7 +66,7 @@ for year_data in all_data:
 historical_df = pd.concat(dfs, ignore_index=True)
 
 # Get the 7-day forecast
-forecast_data = get_forecast(LATITUDE, LONGITUDE)
+forecast_data = get_forecast(LATITUDE, LONGITUDE)  # ← just added back
 forecast_df = pd.DataFrame({
     "date": forecast_data["daily"]["time"],
     "max_temp": forecast_data["daily"]["temperature_2m_max"],
