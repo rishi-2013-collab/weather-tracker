@@ -56,6 +56,9 @@ current_data = get_current_weather(LATITUDE,LONGITUDE)
 current_temp = current_data['current']['temperature_2m']
 current_time = current_data['current']['time']
 
+temp_c = current_temp
+temp_f = round((9/5 * temp_c + 32), 1)
+
 today = date.today()
 current_year = today.year
 
