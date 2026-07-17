@@ -58,6 +58,9 @@ def get_current_weather(lat, lon):
 
 def generate_dashboard():
     df = pd.read_csv("daily_log.csv", skipinitialspace=True)
+    df["datetime"] = pd.to_datetime(df["time"])
+    df = df.sort_values("datetime")
+    print(df.columns.tolist())
 
 current_data = get_current_weather(LATITUDE,LONGITUDE)
 current_temp = current_data['current']['temperature_2m']
