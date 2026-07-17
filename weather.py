@@ -3,7 +3,9 @@ os.environ['MPLBACKEND'] = 'Agg'
 import requests
 import pandas as pd
 from datetime import date
-import os
+import matplotlib
+import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
 
 # My camping location
 LATITUDE = 37.8651
