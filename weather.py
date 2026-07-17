@@ -110,6 +110,11 @@ forecast_df.to_csv("forecast_weather.csv", index=False)
 print("\nData saved to CSV files.")
 
 
-log_df = pd.DataFrame({"date": [str(today)],"time": [current_time],"temperature_2m": [current_temp]})
+log_df = pd.DataFrame({
+    "date": [str(today)],
+    "time": [current_time],
+    "temperature_2m": [temp_c],
+    "temp_f": [temp_f]
+})
 log_file = "daily_log.csv"
 log_df.to_csv(log_file, mode='a', header=not os.path.isfile(log_file), index=False)
