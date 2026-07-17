@@ -114,6 +114,9 @@ print(f"Average Low: {historical_df['min_temp'].mean():.1f}°C")
 print("\n--- 7-Day Forecast ---")
 print(forecast_df)
 
+print("before dashboard")
+generate_dashboard()
+print("after dashboard")
 
 # Save to CSV
 historical_df.to_csv("historical_weather.csv", index=False)
@@ -129,6 +132,3 @@ log_df = pd.DataFrame({
 })
 log_file = "daily_log.csv"
 log_df.to_csv(log_file, mode='a', header=not os.path.isfile(log_file), index=False)
-print("before dashboard")
-generate_dashboard()
-print("after dashboard")
