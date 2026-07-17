@@ -55,7 +55,10 @@ def get_current_weather(lat, lon):
     }
     response = requests.get(url, params=params)
     return response.json()
-    
+
+def generate_dashboard():
+    df = pd.read_csv("daily_log.csv", skipinitialspace=True)
+
 current_data = get_current_weather(LATITUDE,LONGITUDE)
 current_temp = current_data['current']['temperature_2m']
 current_time = current_data['current']['time']
