@@ -1,3 +1,5 @@
+import os
+os.environ['MPLBACKEND'] = 'Agg'
 import requests
 import pandas as pd
 from datetime import date
